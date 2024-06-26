@@ -8,6 +8,7 @@ import vn.dev.sd18314.WebAppHotelBooking.entity.Categoris;
 import vn.dev.sd18314.WebAppHotelBooking.repo.CategoriRepo;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -17,5 +18,9 @@ public class CategoriServiceImpl {
 
     public List<Categoris> doGetAll() {
         return categoriRepo.findAll();
+    }
+
+    public Optional<Categoris> doGetById(String id) {
+        return categoriRepo.findById(id);
     }
 }
