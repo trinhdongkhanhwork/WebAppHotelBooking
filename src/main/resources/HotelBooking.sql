@@ -1,8 +1,7 @@
 CREATE
 DATABASE HotelBooking;
 
-USE
-HotelBooking;
+USE HotelBooking;
 
 -- Bảng Roles
 CREATE TABLE Roles
@@ -20,7 +19,7 @@ CREATE TABLE Users
     id          INT AUTO_INCREMENT PRIMARY KEY,
     username    VARCHAR(50)  NOT NULL UNIQUE,
     password    VARCHAR(255) NOT NULL,
-    email       VARCHAR(255) NOT NULL,
+    email       TEXT         NOT NULL,
     fullname    VARCHAR(255) NOT NULL,
     address     TEXT         NOT NULL,
     phone       VARCHAR(15)  NOT NULL UNIQUE,
@@ -39,9 +38,10 @@ CREATE TABLE Hotel
 (
     id          INT AUTO_INCREMENT PRIMARY KEY,
     name        VARCHAR(255) NOT NULL,
+    imgUrl      TEXT NULL,
     address     TEXT         NOT NULL,
     phone       VARCHAR(15)  NOT NULL,
-    email       VARCHAR(255) NOT NULL,
+    email       TEXT         NOT NULL,
     createdDate DATETIME     NOT NULL,
     updatedDate DATETIME NULL,
     version     INT          NOT NULL
@@ -67,8 +67,8 @@ CREATE TABLE Rooms
     hotelId     INT            NOT NULL,
     title       VARCHAR(255)   NOT NULL,
     imgUrl1     TEXT NULL,
-    imgUrl1     TEXT NULL,
-    imgUrl1     TEXT NULL,
+    imgUrl2     TEXT NULL,
+    imgUrl3     TEXT NULL,
     address     TEXT           NOT NULL,
     roomNumber  VARCHAR(50)    NOT NULL,
     roomType    VARCHAR(50)    NOT NULL,
