@@ -21,6 +21,7 @@ CREATE TABLE Users
     password    VARCHAR(255) NOT NULL,
     email       TEXT         NOT NULL,
     fullname    VARCHAR(255) NOT NULL,
+    imgUrl      TEXT         NOT NULL,
     address     TEXT         NOT NULL,
     phone       VARCHAR(15)  NOT NULL UNIQUE,
     gender      ENUM('MALE', 'FEMALE', 'OTHER') NOT NULL,
@@ -71,7 +72,6 @@ CREATE TABLE Rooms
     imgUrl3     TEXT NULL,
     address     TEXT           NOT NULL,
     roomNumber  VARCHAR(50)    NOT NULL,
-    roomType    VARCHAR(50)    NOT NULL,
     bedType     VARCHAR(50)    NOT NULL,
     price       DECIMAL(10, 2) NOT NULL,
     statusRoom  BIT            NOT NULL DEFAULT 1,
@@ -129,7 +129,6 @@ CREATE TABLE ReportBill
     userName    VARCHAR(255)   NOT NULL,
     phoneNumber VARCHAR(15)    NOT NULL,
     roomNumber  VARCHAR(50)    NOT NULL,
-    roomType    VARCHAR(50)    NOT NULL,
     checkin     DATETIME       NOT NULL,
     checkout    DATETIME       NOT NULL,
     totalAmount DECIMAL(10, 2) NOT NULL,
@@ -179,11 +178,11 @@ INSERT INTO Roles (description, createdDate, updatedDate, version)
 VALUES ('Admin', '2024-05-21 10:00:00', '2024-05-21 10:30:00', 1),
        ('User', '2024-05-21 11:00:00', NULL, 1);
 
-INSERT INTO Users (username, password, email, fullname, address, phone, gender, birthday, isActived, createdDate,
+INSERT INTO Users (username, password, email, fullname, imgUrl, address, phone, gender, birthday, isActived, createdDate,
                    updatedDate, version, roleId)
-VALUES ('admin', '$2a$12$SXgmVBYyynbtcpWcV4ROkuTQK0zPdy3IhURMQmtZCy59cMuNoRyGC', 'admin@example.com', 'User One',
+VALUES ('admin', '$2a$12$SXgmVBYyynbtcpWcV4ROkuTQK0zPdy3IhURMQmtZCy59cMuNoRyGC', 'admin@example.com', 'User One', 'deluxe.jpg',
         '123 Street, City', '1234567890', 'Male', '1990-01-01', 1, NOW(), NULL, 1, 1),
-       ('user2', '$2a$12$i/Xrjl1acnq4.8ZCTqQub.BPl9xYJ.tGg4z2rDBHRJeyp.ANTKV0S', 'user2@example.com', 'User Two',
+       ('user2', '$2a$12$i/Xrjl1acnq4.8ZCTqQub.BPl9xYJ.tGg4z2rDBHRJeyp.ANTKV0S', 'user2@example.com', 'User Two', 'deluxe.jpg',
         '456 Avenue, Town', '0569154932', 'Female', '1995-05-05', 1, NOW(), NULL, 1, 2);
 
 INSERT INTO Categories (description, slug, isActived, createdDate, updatedDate, version, imgUrl)
